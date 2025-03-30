@@ -42,9 +42,13 @@ import { RouterLink, RouterView } from 'vue-router'
       <strong>dev and test we can use normal user account and non-prod Vault</strong> to store some
       of the deployment settings like for K8S deployment example K8S Cluster, K8S Namespace,
       Auth-Config and etc. For <strong>stg and prod, only service and Prod Vault</strong> can be
-      allowed to deploy to the K8S for example using different deployment settings. CI/CD pipeline
-      can make use of the vault and account to deploy the application to different environment based
-      on the gitlab branch and deployment settings defined in Vault.
+      allowed to deploy to the K8S for example using different deployment settings. If related to
+      scalability, we can leverage the usage of HPA (Horizontal Pod Autoscaling) to increase the
+      number of running pods to distribute the load from the applications when the metrices observed
+      exceeded a certain threshold that we set in Autoscaling configs. Traffic can be better
+      redirected and balanced when requests increase. CI/CD pipeline can make use of the vault and
+      account to deploy the application to different environment based on the gitlab branch and
+      deployment settings defined in Vault.
     </p>
     <img src="../assets/MyTimeline.jpg" width="100%" />
     <nav>
